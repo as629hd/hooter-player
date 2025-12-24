@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Police Hooter</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: black;
+            font-family: Arial, sans-serif;
+        }
+
+        button {
+            padding: 20px 40px;
+            font-size: 22px;
+            background: red;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        button:active {
+            transform: scale(0.95);
+        }
+    </style>
+</head>
+<body>
+
+    <button onclick="toggleSound()">PLAY HOOTER</button>
+
+    <audio id="hooter">
+        <source src="Original Police Siren Sound Police Hooter Sound First Official Entertaining Video.mp3" type="audio/mpeg">
+    </audio>
+
+    <script>
+        const audio = document.getElementById("hooter");
+        const button = document.querySelector("button");
+        let isPlaying = false;
+
+        function toggleSound() {
+            if (!isPlaying) {
+                audio.play();
+                button.textContent = "STOP HOOTER";
+            } else {
+                audio.pause();
+                audio.currentTime = 0;
+                button.textContent = "PLAY HOOTER";
+            }
+            isPlaying = !isPlaying;
+        }
+    </script>
+
+</body>
+</html>
